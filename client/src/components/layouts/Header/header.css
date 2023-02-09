@@ -1,0 +1,22 @@
+.header{
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding : 1vmin 3vmax;
+}
+
+.hearder_left{
+  width: 20%;
+
+}
+
+.hearder_left img {
+  width: 100%;
+}
+
+.header__center{
+  display: flex;
+  gap :3vmax;
+};
+

@@ -1,0 +1,14 @@
+{
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        /*cài 
+            npm install --save @babel/runtime 
+            npm install --save-dev @babel/plugin-transform-runtime
+            và câu lệnh ở dưới để sử dụng async await babel 7 
+        */
+        ["@babel/transform-runtime", {"regenerator": true }]  
+    ]
+}
