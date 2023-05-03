@@ -41,6 +41,7 @@ export const login = (email, password) =>{
                 email,
                 password
             };
+            
             const config = { headers: { "Content-Type": "application/json",
                 'Accept': 'application/json'
                 } ,
@@ -48,13 +49,14 @@ export const login = (email, password) =>{
             };
 
             const {data} = await axios.post(link, body, config);
-            
+            console.log("data : ",data);
             dispatch({
                 type : LOGIN_SUCCESS,
                 payload : data.user
             })
 
         } catch (error) {
+          console.log("error.response.data.message : ",error.response.data.message);
             dispatch({ 
                 type : LOGIN_FAIL,
                 payload : error.response.data.message
@@ -73,12 +75,14 @@ export const register = (myForm)=>{
             const config = { headers: { "Content-Type": "application/json" } };
 
             const {data} = await axios.post(link, myForm, config);
-
+          console.log("register : ",data);
             dispatch({
                 type : REGISTER_USER_SUCCESS,
                 payload : data.user
             });
         } catch (error) {
+          console.log("register error : ",error);
+
             dispatch({
                 type : REGISTER_USER_FAIL,
                 payload : error.response.data.message

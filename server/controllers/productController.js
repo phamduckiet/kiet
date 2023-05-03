@@ -6,7 +6,6 @@ import cloudinary from "cloudinary";
 
 export const createProduct = catchAsyncModels ( 
     async (req, res, next) =>{
-
         try {
             let images = [];
 
@@ -18,9 +17,12 @@ export const createProduct = catchAsyncModels (
 
             const imagesLinks = [];
 
+
             for (let i = 0; i < images.length; i++) {
                 const result = await cloudinary.v2.uploader.upload(images[i], {
                 folder: "products",
+                width : 150, 
+                    crop : "scale"
                 });
 
                 imagesLinks.push({
@@ -28,6 +30,7 @@ export const createProduct = catchAsyncModels (
                     url: result.secure_url,
                 });
             }
+
 
             req.body.images = imagesLinks;
 

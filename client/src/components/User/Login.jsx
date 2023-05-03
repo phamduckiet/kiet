@@ -77,7 +77,7 @@ const LoginSignUp = ( ) => {
     }
 
     if (isAuthenticated) {
-        navi(redirect);
+        navi("/");
     }
   }, [dispatch, error, alert, navi, isAuthenticated]);
 

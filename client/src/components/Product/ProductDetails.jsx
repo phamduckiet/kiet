@@ -38,7 +38,7 @@ const ProductDetails = () => {
 
   const options = {
     size: "large",
-    value: product.ratings,
+    value: product?.ratings,
     readOnly: true,
     precision: 0.5,
   };
@@ -123,13 +123,13 @@ const ProductDetails = () => {
             <div>
               <div className="detailsBlock-1">
                 <h2>{product.name}</h2>
-                <p>Product # {product._id}</p>
+                <p>Product # {product?._id}</p>
               </div>
               <div className="detailsBlock-2">
                 <Rating {...options} />
                 <span className="detailsBlock-2-span">
                   {" "}
-                  ({product.numOfReviews} Reviews)
+                  ({product?.numOfReviews} Reviews)
                 </span>
               </div>
               <div className="detailsBlock-3">
@@ -150,14 +150,14 @@ const ProductDetails = () => {
 
                 <p>
                   Status:
-                  <b className={product.Stock < 1 ? "redColor" : "greenColor"}>
-                    {product.Stock < 1 ? "OutOfStock" : "InStock"}
+                  <b className={product?.Stock < 1 ? "redColor" : "greenColor"}>
+                    {product?.Stock < 1 ? "OutOfStock" : "InStock"}
                   </b>
                 </p>
               </div>
 
               <div className="detailsBlock-4">
-                Description : <p>{product.description}</p>
+                Description : <p>{product?.description}</p>
               </div>
 
               <button onClick={submitReviewToggle} className="submitReview">
@@ -201,8 +201,8 @@ const ProductDetails = () => {
 
           {product.reviews && product.reviews[0] ? (
             <div className="reviews">
-              {product.reviews &&
-                product.reviews.map((review) => (
+              {product?.reviews &&
+                product?.reviews.map((review) => (
                   <ReviewCard key={review._id} review={review} />
                 ))}
             </div>

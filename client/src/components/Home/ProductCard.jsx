@@ -13,9 +13,11 @@ const ProductCard = ({ product }) => {
     isHalf : true,
   };
 
+  // console.log(Object.values(product?.images[0].url).join(''));
+
   return (
     <Link className="productCard" to={`/product/${product._id}`}>
-      <img src={product.images[0].url} alt={product.name} />
+      <img src={'https://res.cloudinary.com/dkrqq8jer/image/upload/v1683105260/avatars/qwckzq8gbon0yuuetc7i.png'} alt={product.name} />
       <p>{product.name}</p>
       <div>
           <ReactStars {...options} />,

@@ -24,7 +24,7 @@ const Profile = () => {
           <div className="profileContainer">
             <div>
               <h1>My Profile</h1>
-              <img src={user.avatar.url} alt={user.name} />
+              <img src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTs3Nz-EPFgm5ORuTUoYOy1XDTOF_7w_TdRQ&usqp=CAU'} alt={user.name} />
               <Link to="/me/update">Edit Profile</Link>
             </div>
             <div>

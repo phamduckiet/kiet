@@ -8,19 +8,26 @@ import cloudinary from "cloudinary";
 
 export const registerUser = catchAsyncModels(
     async (req, res, next) => {
+
         const myCloudinary = await cloudinary.v2.uploader.upload(req.body.avatar, {
             folder : "avatars", 
             width : 150, 
             crop : "scale"
         });
+
         const {name , password, email} = req.body;
-        const user = await UserModel.create({
+
+
+        const user = new UserModel({
             name, email, password, 
             avatar : {
                 public_id : myCloudinary.public_id,
-                url : myCloudinary.secure_url
+                url : myCloudinary.url
             }
         });
+
+        user.save();
+
         sendToken(user, 201, res);
     }
 )
